@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0b1622;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+.text {
+    color: #fff;
+    font-size: 48px; /* Duplicado el tamaño del texto (24px -> 48px) */
+    margin-bottom: 100px; /* Duplicado la separación entre el texto y el corazón (40px -> 80px) */
+    text-shadow: 0 0 20px #f20044, 0 0 40px #f20044; /* Ajusté la sombra para que combine con el nuevo tamaño */
+}
+
+.heart {
+    height: 140px; /* Duplicado el tamaño del corazón (70px -> 140px) */
+    width: 140px; /* Duplicado el tamaño del corazón (70px -> 140px) */
+    background-color: #f20044;
+    position: relative;
+    box-shadow: 20px 20px 180px #f20044; /* Ajusté la sombra para que combine con el nuevo tamaño */
+    animation: animHeart .6s linear infinite;
+    transform: rotate(-45deg) scale(1);
+    margin: 0 auto; /* Centra el corazón horizontalmente */
+}
+
+@keyframes animHeart {
+    0% {
+        transform: rotate(-45deg) scale(1.07);
+    }
+    30% {
+        transform: rotate(-45deg) scale(1);
+    }
+    80% {
+        transform: rotate(-45deg) scale(.9);
+    }
+    90% {
+        transform: rotate(-45deg) scale(.8);
+    }
+    100% {
+        transform: rotate(-45deg) scale(.7);
+    }
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    height: 140px; /* Duplicado el tamaño de los pseudo-elementos (70px -> 140px) */
+    width: 140px; /* Duplicado el tamaño de los pseudo-elementos (70px -> 140px) */
+    background-color: #f20044;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -70px; /* Ajusté la posición (35px -> 70px) */
+    left: 0;
+    box-shadow: -20px 20px 180px #f20044; /* Ajusté la sombra para que combine con el nuevo tamaño */
+}
+
+.heart::after {
+    top: 0;
+    right: -70px; /* Ajusté la posición (35px -> 70px) */
+    box-shadow: 20px -20px 180px #f20044; /* Ajusté la sombra para que combine con el nuevo tamaño */
+}
