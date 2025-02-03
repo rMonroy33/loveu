@@ -1,36 +1,64 @@
+/* Reset básico */
 body {
     margin: 0;
     padding: 0;
-    background-color: #0b1622;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
+    background-color: black; /* Fondo completamente negro */
+    overflow: hidden;
 }
 
+/* Contenedor principal */
 .container {
     text-align: center;
+    position: relative;
 }
 
+/* Texto con efecto neón */
 .text {
     color: #fff;
-    font-size: 48px; /* Duplicado el tamaño del texto (24px -> 48px) */
-    margin-bottom: 100px; /* Duplicado la separación entre el texto y el corazón (40px -> 80px) */
-    text-shadow: 0 0 20px #f20044, 0 0 40px #f20044; /* Ajusté la sombra para que combine con el nuevo tamaño */
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px; /* Mantener margen inferior pequeño para el corazón */
+    text-shadow: 0 0 10px #ff4081, 0 0 20px #ff4081, 0 0 30px #ff4081;
+    position: relative; /* Permite el desplazamiento sin afectar otros elementos */
+    top: -45px; /* Mueve el texto hacia arriba */
 }
 
+/* Contenedor del corazón y la luna */
+.heart-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Imagen de la luna */
+.moon {
+    width: 200px; /* Ajusta el tamaño según necesites */
+    position: absolute;
+    left: 85px; /* Luna más cerca del corazón */
+    top: -100px; /* Mover la luna hacia arriba */
+    z-index: -1; /* Envía la luna detrás del corazón */
+    opacity: 0.9; /* Suaviza la imagen */
+}
+
+/* Corazón animado */
 .heart {
-    height: 140px; /* Duplicado el tamaño del corazón (70px -> 140px) */
-    width: 140px; /* Duplicado el tamaño del corazón (70px -> 140px) */
+    width: 70px; /* Tamaño adecuado */
+    height: 70px; /* Tamaño adecuado */
     background-color: #f20044;
     position: relative;
-    box-shadow: 20px 20px 180px #f20044; /* Ajusté la sombra para que combine con el nuevo tamaño */
+    transform: rotate(-45deg);
+    box-shadow: 20px 20px 180px #f20044; /* Sombra ajustada */
     animation: animHeart .6s linear infinite;
-    transform: rotate(-45deg) scale(1);
-    margin: 0 auto; /* Centra el corazón horizontalmente */
+    margin: 0 auto; /* Centrado */
 }
 
+/* Animación de latido */
 @keyframes animHeart {
     0% {
         transform: rotate(-45deg) scale(1.07);
@@ -49,24 +77,25 @@ body {
     }
 }
 
+/* Forma del corazón */
 .heart::before,
 .heart::after {
     content: '';
     position: absolute;
-    height: 140px; /* Duplicado el tamaño de los pseudo-elementos (70px -> 140px) */
-    width: 140px; /* Duplicado el tamaño de los pseudo-elementos (70px -> 140px) */
+    width: 70px; /* Tamaño adecuado */
+    height: 70px; /* Tamaño adecuado */
     background-color: #f20044;
     border-radius: 50%;
 }
 
 .heart::before {
-    top: -70px; /* Ajusté la posición (35px -> 70px) */
+    top: -35px; /* Ajustado al tamaño adecuado */
     left: 0;
-    box-shadow: -20px 20px 180px #f20044; /* Ajusté la sombra para que combine con el nuevo tamaño */
+    box-shadow: -20px 20px 180px #f20044; /* Sombra ajustada */
 }
 
 .heart::after {
+    left: 35px; /* Ajustado al tamaño adecuado */
     top: 0;
-    right: -70px; /* Ajusté la posición (35px -> 70px) */
-    box-shadow: 20px -20px 180px #f20044; /* Ajusté la sombra para que combine con el nuevo tamaño */
+    box-shadow: 20px -20px 180px #f20044; /* Sombra ajustada */
 }
